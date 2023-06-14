@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<script>
+  function checkPassword(form)
+  {
+    password=form.password.value;
+    repass=form.repass.value;
+    if(password=='')
+     alert("please enter password");
+    else if(repass=='')
+     alert("please enter confirm password");
+    else if(password != repass){
+     alert("pass word did not match");
+     return false;
+    }
+    else{
+     alert("password match")
+     return true;
+    }
+  }
+</script> 
+<style>  
+body{  
+  font-family: Calibri, Helvetica, sans-serif;  
+  background-color: pink;  
+  background-image: url('/static/assets/img/v2.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: cover;
+        padding:50px 350px;
+}  
+
+input[type=text], input[type=password], textarea {  
+  width: 50%;  
+  padding: 15px;  
+  margin: 5px 0 22px 0;  
+  display: inline-block;  
+  border: none;  
+  background: #f1f1f1;  
+}  
+input[type=text]:focus, input[type=password]:focus {  
+  background-color: orange;  
+  outline: none;  
+}  
+ div {  
+            padding: 10px 0;  
+         }  
+hr {  
+  border: 1px solid #f1f1f1;  
+  margin-bottom: 25px;  
+}  
+.registerbtn {  
+  background-color: #4CAF50;  
+  color: white;  
+  padding: 16px 20px;  
+  margin: 8px 0;  
+  border: none;  
+  cursor: pointer;  
+  width: 40%;  
+  opacity: 0.9;  
+}  
+.registerbtn:hover {  
+  opacity: 1;  
+}  
+.t{
+  padding:9px 130px;
+}
+</style>  
+</head>  
+<body>  
+<form  method="POST" onsubmit="checkPassword(this)">
+  {% csrf_token %}  
+  <div class="container">  
+  <center>  <h1 style="color:white;"><u>  Registration Form</h1> </u></center>  
+  
+ <center>  
+<input type="text" name="fname" id="fname" placeholder= "Enter your name" size="15" required />   
+<div> 
+<label>   
+<b style="color:white;">District:  </b>
+</label>   
+<br> 
+<select name="District" id="District" class="t">  
+<option value="thrissur">Thrissur</option>  
+<option value="kollam">Kollam</option>  
+<option value="kottayam">Kottayam</option>  
+<option value="pala">Palakad</option>  
+</select>  
+</div>  
+<div>  
+<label>   
+<b style="color:white;">Gender :  </b>
+</label><br>  
+<input type="radio" value="Male" name="gen" id="gen" > Male   
+<input type="radio" value="Female" name="gen" id="gen" > Female   
+<input type="radio" value="Other" name="gen" id="gen" > Other  
+  
+</div> <br> 
+<label>   
+  <b style="color:white;">Phone :</b>  
+</label><br>  
+<input type="text" name="phoneNumber" id="phoneNumber" placeholder="phone no." size="10"/ required>  <br>
+<label>    
+  <b style="color:white;">Current Address :  </b>
+</label> <br>
+<textarea cols="80" rows="5" placeholder="Current Address" value="address" name="adrs" id="adrs" required>  
+</textarea><br>  
+ <label for="email"><b style="color:white;">Email</b></label>  <br>
+ <input type="text" placeholder="Enter Email" name="email" id="email" required>  
+ <br>
+    <label for="psw"><b style="color:white;">Password</b></label>  <br>
+    <input type="password" placeholder="Enter Password" name="password" id="password" required>  
+    <br>
+    <label for="psw-repeat"><b style="color:white;">Re-type Password</b></label>  <br>
+    <input type="password" placeholder="Retype Password" name="repass" id="repass" required> 
+<br>
+    <button type="submit" class="registerbtn">Register</button>    </center>
+</form>  
+</body>  
+</html>

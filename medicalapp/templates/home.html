@@ -1,0 +1,77 @@
+{% load static %}
+<html>
+    <head><title> PSORIASIS DISEASE DETECTION</title>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+      <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+      <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+      </head>
+      <style>
+        body {
+          background-image: url('/static/assets/img/v6.jpg');
+          background-repeat: no-repeat;
+          background-attachment: fixed; 
+         
+          background-size: 100% 100%;
+          
+        }
+    </style>
+    </head>
+    <body>
+      <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <h1 class="logo" style="color:white;"><a href="index.html"> </a>PSORIASIS DISEASE DETECTION</h1>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto active" href="/home1">Home</a></li>
+              <!-- <li><a class="nav-link scrollto" href="/">Live Capture</a></li> -->
+              <li><a class="nav-link scrollto" href="/">Logout</a></li>
+         
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header>
+      <br>    
+      <br>
+      <br>
+      <br>
+      <br><br><br><br>
+
+      <center><h1 style="color:black;" ><b>CHOOSE A FILE </b></h1></center>
+    
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <center><input type="file" name="myfile"></center>
+        <br><br>
+        <center><button type="submit">UPLOAD</button></center>
+       
+    </form><br><br><br>
+    <center>{% if uploaded %}
+
+
+      <table border="1">
+<tr><td>Name</td><td>{{name}}</td></tr>
+  <tr><td>Age</td><td>{{age}}</td></tr>
+    <tr><td>Address</td><td>{{address}}</td></tr>
+      <tr><td>Email</td><td>{{email}}</td></tr>
+        <tr><td>Phone</td><td>{{phone}}</td></tr>
+          <tr><td>Status</td><td>{{condition}}</td></tr>
+          <tr><td>Level</td><td>{{uploaded}}</td></tr>
+      </table>
+    <a  href="{{ uploaded }}" style="color:black;"><b>YOUR PSORIASIS DETECTION RESULT  IS : {{ uploaded }}</b></a>
+    {% endif %}</center>
+              
+                
+    
+    </body>
+</html>

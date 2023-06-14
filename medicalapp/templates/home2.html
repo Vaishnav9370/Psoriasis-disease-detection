@@ -1,0 +1,48 @@
+{% load static %}
+<html>
+    <head><title> PSORIASIS DISEASE DETECTION</title>
+
+    <body>
+      <header id="header" class="fixed-top d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
+    
+          <h1 class="logo" style="color:white;"><a href="index.html"> </a>PSORIASIS DISEASE DETECTION</h1>
+          <nav id="navbar" class="navbar">
+            <ul>
+              <li><a class="nav-link scrollto active" href="/home1">Home</a></li>
+       
+         
+
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+          </nav><!-- .navbar -->
+    
+        </div>
+      </header>
+      <br>    
+      <br>
+      <br>
+      <br>
+      <br><br><br><br>
+
+      <center><h1 style="color:black;" >
+    
+
+
+
+      <table border="1">
+<tr><td>Name</td><td>{{name}}</td></tr>
+
+    <tr><td>Address</td><td>{{address}}</td></tr>
+      <tr><td>Email</td><td>{{email}}</td></tr>
+        <tr><td>Phone</td><td>{{phone}}</td></tr>
+          <tr><td>Status</td><td>{{condition}}</td></tr>
+          <tr><td>Severity</td><td>{{uploaded}}</td></tr>
+      </table>
+    <a  href="{{ uploaded }}" style="color:black;"><b>YOUR PSORIASIS DETECTION RESULT  IS : {{ uploaded }}</b></a>
+</center>
+              
+              <marquee>Press Control + P to Print</marquee>  
+    
+    </body>
+</html>
